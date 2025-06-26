@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>George Kossov - AI Research</title>
+    <style>
+        body {
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        header {
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .header-content {
+            text-align: left;
+        }
+        
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #f0f0f0;
+        }
+        
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 0;
+        }
+        
+        /* Навигация */
+        nav {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        nav a {
+            margin: 0 15px;
+            font-size: 1.1em;
+        }
+        
+        /* Основное содержимое */
+        section {
+            margin-bottom: 40px;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        /* Цветовые секции */
+        .white-section {
+            background-color: white;
+        }
+        
+        .gray-section {
+            background-color: #f8f8f8;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .publication {
+            margin-bottom: 20px;
+        }
+        
+        .pub-title {
+            font-weight: bold;
+        }
+        
+        .pub-authors {
+            font-style: italic;
+        }
+        
+        /* Таймлайн */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 30px auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color:  #666;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #f8f8f8;
+            border: 4px solid #666;
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 0%;
+        }
+        
+        .left::after {
+            right: -12px;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-date {
+            display: flex;
+            align-items: flex-start;
+            font-weight: bold;
+            color: #666;
+            gap: 10px;
+        }
+        
+        .company-logo {
+            height: 30px;
+            object-fit: contain;
+    
+        }
+        .job-photo {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        
+        .job-description {
+            margin-top: 10px;
+        }
+        
+        /* Подвал */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        /* Переключатель языка */
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        
+        .language-switcher button {
+            background: none;
+            border: none;
+            color: #0066cc;
+            cursor: pointer;
+            padding: 5px;
+            font-size: 0.9em;
+        }
+        
+        .language-switcher button.active {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .header-content {
+                text-align: center;
+            }
+            
+            .profile-photo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .language-switcher {
+                position: static;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            
+            /* Адаптивный таймлайн */
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .left::after, .right::after {
+                left: 21px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switcher">
+        <button id="lang-en" class="active">EN</button>
+        <button id="lang-ru">RU</button>
+    </div>
+
+    <header>
+        <img src="assets/avatar.jpg" alt="Profile Photo" class="profile-photo">
+        <div class="header-content">
+            <h1 data-ru="Георгий Коссов" data-en="George Kossov">George Kossov</h1>
+            <div class="subtitle" data-ru="Исследования в области искусственного интеллекта" data-en="AI Research">AI Research</div>
+        </div>
+    </header>
+    
+    <nav>
+        <a href="#about" data-ru="Обо мне" data-en="About">About</a>
+        <a href="#experience" data-ru="Опыт работы" data-en="Experience">Experience</a>
+        <a href="#research" data-ru="Исследования" data-en="Research">Research</a>
+        <a href="#contact" data-ru="Контакты" data-en="Contact">Contact</a>
+    </nav>
+    
+    <section id="about" class="gray-section">
+        <h2 data-ru="Обо мне" data-en="About">About</h2>
+        <p data-ru="Привет! Я исследователь в области искусственного интеллекта, специализирующийся на глубоком обучении и обработке естественного языка. В настоящее время я студент аспирантуры МФТИ." 
+           data-en="Hello! I am an artificial intelligence researcher specializing in deep learning and natural language processing. Currently, I PHD student at MIPT">
+           Hello! I am an artificial intelligence researcher specializing in deep learning and natural language processing. Currently, I PHD student at MIPT.
+        </p>
+        <p data-ru="Previously, I worked on CV tasks. I received my Master's degree from MIPT" 
+           data-en="Previously, I worked on CV tasks. I received my Master's degree from MIPT">
+           Previously, I worked on CV tasks. I received my Master's degree from MIPT.
+        </p>
+    </section>
+    
+    <section id="experience" class="white-section">
+        <h2 data-ru="Опыт работы" data-en="Experience">Experience</h2>
+        
+        <div class="timeline">
+            <!-- Пример элемента таймлайна -->
+            
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <div class="timeline-date">
+                        2023 -
+                        <img src="assets\mip2.PNG" alt="Company Logo" class="company-logo">
+                        <img src="assets\slb_logo.png" alt="University Logo" class="company-logo">
+                    </div>
+                
+                    <h3 data-ru="Аспирант" data-en="PhD Student">PhD Student</h3>
+                    <h4 data-ru="Московский физико-технический институт " data-en="Moscow Institute of Physics and Technology (Russian Federation)">Moscow Institute of Physics and Technology (Russian Federation)</h4>
+                    <img src="assets/work2.jpg" alt="Work Photo" class="job-photo">
+                    <div class="job-description" data-ru="Создание прототипов продуктов на основе ИИ. Участие в исследованиях компьютерного зрения. Внедрение моделей в производство." 
+                         data-en="Building AI-based product prototypes. Conducting computer vision research. Deploying models to production.">
+                         Building AI-based product prototypes. Conducting computer vision research. Deploying models to production.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <div class="timeline-date">
+                        2021 - 2023
+                        <img src="assets\mip2.PNG" alt="University Logo" class="company-logo">
+                        <img src="assets\ros_logo.png" alt="University Logo" class="company-logo">
+                        <img src="assets\slb_logo.png" alt="University Logo" class="company-logo">
+                    </div>
+                    
+                    <h3 data-ru="Магистр, Прикладные математика и физика" data-en="Masters, Applied Science">Masters, Applied Science</h3>
+                    <h4 data-ru="Московский физико-технический институт " data-en="Moscow Institute of Physics and Technology (Russian Federation)">Moscow Institute of Physics and Technology (Russian Federation)</h4>
+                    <img src="assets\.png" alt="Research Photo" class="job-photo">
+                    <div class="job-description" data-ru="Тема магистерской диссертации: Влияние осложняющих факторов на снижение производительности скважины с трещиной ГРП" 
+                         data-en="Thesis/Major: The effect of residual gel on the productivity of a well with a propped fracture">
+                         Thesis/Major: The effect of residual gel on the productivity of a well with a propped fracture
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <div class="timeline-date">
+                        2017 - 2021
+                        <img src="assets\mip2.PNG" alt="University Logo" class="company-logo">
+                    </div>
+                    <h3 data-ru="Бакалавриат, Прикладные математика и физика" data-en="Bachelors, Applied Science">Bachelors, Applied Science</h3>
+                    <h4 data-ru="Московский физико-технический институт " data-en="Moscow Institute of Physics and Technology (Russian Federation)">Moscow Institute of Physics and Technology (Russian Federation)</h4>
+                    <img src="assets/research.jpg" alt="Research Photo" class="job-photo">
+                    <div class="job-description" data-ru="Тема дипломной работы :Решение обратной задачи теплопроводности для определения коэффициента теплопроводности" 
+                         data-en="Thesis/Major: Solving the inverse problem of thermal conductivity to determine the coefficient of thermal conductivity">
+                         Thesis/Major: Solving the inverse problem of thermal conductivity to determine the coefficient of thermal conductivity
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    
+    <section id="research" class="gray-section">
+        <h2 data-ru="Исследования" data-en="Research">Research</h2>
+        <p data-ru="Мои исследовательские интересы включают:" data-en="My research interests include:">
+           My research interests include:
+        </p>
+        <ul>
+            <li data-ru="Глубокое обучение" data-en="Deep Learning">Deep Learning</li>
+            <li data-ru="Обработка естественного языка" data-en="Natural Language Processing">Natural Language Processing</li>
+            <li data-ru="Генеративные модели" data-en="Generative Models">Generative Models</li>
+            <li data-ru="Обучение с подкреплением" data-en="Reinforcement Learning">Reinforcement Learning</li>
+        </ul>
+        
+        <h3 data-ru="Статьи" data-en="Papers">Papers</h3>
+        <div class="publication">
+            <div class="pub-title" data-ru="Новая методика текстурно-структурного анализа имиджей с помощью алгоритмов глубокого обучения (PREPRINT)" data-en="Новая методика текстурно-структурного анализа имиджей с помощью алгоритмов глубокого обучения (PREPRINT)">Новая методика текстурно-структурного анализа имиджей с помощью алгоритмов глубокого обучения (PREPRINT)</div>
+            <div class="pub-authors" data-ru="Коссов Г., Абашкин В., Егоров С., Макиенко Д." data-en="Коссов Г., Абашкин В., Егоров С., Макиенко Д.">Коссов Г., Абашкин В., Егоров С., Макиенко Д.</div>
+            <div class="pub-venue" data-ru="ГЕОРЕСУРСЫ , 2025" data-en="ГЕОРЕСУРСЫ , 2025">ГЕОРЕСУРСЫ , 2025</div>
+            <div class="pub-links">
+                [<a href="assets\papers\Kossov_FMI_proc.pdf" data-ru="PDF" data-en="PDF">PDF</a>] 
+            </div>
+        </div>
+        <div class="publication">
+            <div class="pub-title" data-ru="Опыт применения методики автоматической увязки данных геофизических исследований скважин с фотографиями керна на карбонатных и терригенных месторождениях (PREPRINT)" data-en="Опыт применения методики автоматической увязки данных геофизических исследований скважин с фотографиями керна на карбонатных и терригенных месторождениях (PREPRINT)">Опыт применения методики автоматической увязки данных геофизических исследований скважин с фотографиями керна на карбонатных и терригенных месторождениях (PREPRINT)</div>
+            <div class="pub-authors" data-ru="Коссов Г., Абашкин В., Езерский Д." data-en="Коссов Г., Абашкин В., Езерский Д.">Коссов Г., Абашкин В., Езерский Д.</div>
+            <div class="pub-venue" data-ru="ГЕОРЕСУРСЫ , 2025" data-en="ГЕОРЕСУРСЫ , 2025">ГЕОРЕСУРСЫ , 2025</div>
+            <div class="pub-links">
+                [<a href="assets\papers\Kossov_primenenie_metodiki_uvyazki.pdf" data-ru="PDF" data-en="PDF">PDF</a>] 
+            </div>
+        </div>
+        <div class="publication">
+            <div class="pub-title" data-ru="МЕТОД АВТОМАТИЧЕСКОЙ УВЯЗКИ РЕЗУЛЬТАТОВ ГЕОФИЗИЧЕСКИХ ИССЛЕДОВАНИЙ СКВАЖИН С ФОТОГРАФИЯМИ КЕРНА" data-en="МЕТОД АВТОМАТИЧЕСКОЙ УВЯЗКИ РЕЗУЛЬТАТОВ ГЕОФИЗИЧЕСКИХ ИССЛЕДОВАНИЙ СКВАЖИН С ФОТОГРАФИЯМИ КЕРНА">МЕТОД АВТОМАТИЧЕСКОЙ УВЯЗКИ РЕЗУЛЬТАТОВ ГЕОФИЗИЧЕСКИХ ИССЛЕДОВАНИЙ СКВАЖИН С ФОТОГРАФИЯМИ КЕРНА</div>
+            <div class="pub-authors" data-ru="Абашкин В., Коссов Г." data-en="Абашкин В., Коссов Г.">Абашкин В., Коссов Г.</div>
+            <div class="pub-venue" data-ru="Геофизика, 2024" data-en="Геофизика, 2024">Геофизика, 2024</div>
+            <div class="pub-links">
+                [<a href="assets\papers\Depth_shifting_problem.pdf" data-ru="PDF" data-en="PDF">PDF</a>]
+            </div>
+        </div>
+        <div class="publication">
+            <div class="pub-title" data-ru="Влияние настраиваемых параметров полносвязной нейронной сети на качество предсказания для задачи классификации литотипов" data-en="Influence of neural network parameters for the quality of prediction for the tasks of automatic lithotype description">Influence of neural network parameters for the quality of prediction for the tasks of automatic lithotype description</div>
+            <div class="pub-authors" data-ru="Коссов Г.А., Селезнев И.А." data-en="Kossov, G. A., Seleznev, I. A.">Kossov, G. A., Seleznev, I. A.</div>
+            <div class="pub-venue" data-ru="Проблемы информатики, 2022" data-en="Problems of Informatics, 2022">Problems of Informatics, 2022</div>
+            <div class="pub-links">
+                [<a href="assets\papers\elibrary_54899238_16410195.pdf" data-ru="PDF" data-en="PDF">PDF</a>] 
+            </div>
+        </div>
+        <div class="publication">
+            <div class="pub-title" data-ru="Inverted conical methane/air flame shape transformation under acoustic excitation." data-en="Inverted conical methane/air flame shape transformation under acoustic excitation.">Inverted conical methane/air flame shape transformation under acoustic excitation.</div>
+            <div class="pub-authors" data-ru="Krikunova, A. I., Arefyev, K. Y., Saveliev, A. S., Kossov, G. A. and Cheshko, A. D." data-en="Krikunova, A. I., Arefyev, K. Y., Saveliev, A. S., Kossov, G. A. and Cheshko, A. D.">Krikunova, A. I., Arefyev, K. Y., Saveliev, A. S., Kossov, G. A. and Cheshko, A. D.</div>
+            <div class="pub-venue" data-ru="Physics of Fluids (Q1), 33(5), 053610, 2021" data-en="Physics of Fluids (Q1), 33(5), 053610, 2021">Physics of Fluids (Q1), 33(5), 053610, 2021</div>
+            <div class="pub-links">
+                [<a href="assets\papers\inverted_conical_methane_flame.pdf" data-ru="PDF" data-en="PDF">PDF</a>]
+            </div>
+        </div>
+        <div class="publication">
+            <div class="pub-title" data-ru="Flame chemiluminescence image processing using operator Canny" data-en="Flame chemiluminescence image processing using operator Canny">Flame chemiluminescence image processing using operator Canny</div>
+            <div class="pub-authors" data-ru="Krikunova, A. I., Kossov, G. A." data-en="Krikunova, A. I., Kossov, G. A.">Krikunova, A. I., Kossov, G. A.</div>
+            <div class="pub-venue" data-ru="Journal of Physics: Conference Series, 2021" data-en="Journal of Physics: Conference Series, 2021">Journal of Physics: Conference Series, 2021</div>
+            <div class="pub-links">
+                [<a href="assets\papers\Article_elbrus.pdf" data-ru="PDF" data-en="PDF">PDF</a>]
+            </div>
+        </div>
+
+    </section>
+    
+    <section id="contact" class="white-section">
+        <h2 data-ru="Контакты" data-en="Contact">Contact</h2>
+        <p data-ru="Лучший способ связаться со мной — по электронной почте: " 
+           data-en="The best way to reach me is by email: ">
+           The best way to reach me is by email: 
+           <a href="craftfox17@gmail.com">craftfox17@gmail.com</a>
+        </p>
+        <p data-ru="Вы также можете найти меня в:" data-en="You can also find me on:">
+           You can also find me on:
+        </p>
+        <ul>
+            <li><a href="https://www.researchgate.net/profile/Georgy-Kossov">ResearchGate</a></li>
+            <li><a href="https://github.com/gkossov">GitHub</a></li>
+            <li><a href="https://scholar.google.com/citations?user=vAoAqOYAAAAJ&hl=ru">Google Scholar</a></li>
+        </ul>
+    </section>
+     
+
+    <div style="margin-top: 20px; text-align: center;">
+        <a href="https://info.flagcounter.com/TdSY">
+          <img src="https://s01.flagcounter.com/count2/TdSY/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" 
+            alt="Flag Counter" border="0">
+        </a>
+      </div>
+
+    <footer>
+        <p data-ru="© 2025 Георгий Коссов. Все права защищены." data-en="© 2025 George Kossov. All rights reserved.">
+           © 2025 George Kossov. All rights reserved.
+        </p>
+    </footer>
+
+    <script>
+        // Функция для переключения языка
+        function switchLanguage(lang) {
+            // Обновляем активную кнопку
+            document.getElementById('lang-ru').classList.remove('active');
+            document.getElementById('lang-en').classList.remove('active');
+            document.getElementById('lang-' + lang).classList.add('active');
+            
+            // Обновляем атрибут lang у html
+            document.documentElement.lang = lang;
+            
+            // Обновляем все элементы с атрибутами data-ru и data-en
+            const elements = document.querySelectorAll('[data-ru], [data-en]');
+            elements.forEach(el => {
+                if (el.tagName !== 'A' || el.getAttribute('href').startsWith('#')) {
+                    el.textContent = el.getAttribute('data-' + lang);
+                }
+            });
+        }
+        
+        // Обработчики событий для кнопок переключения языка
+        document.getElementById('lang-ru').addEventListener('click', () => switchLanguage('ru'));
+        document.getElementById('lang-en').addEventListener('click', () => switchLanguage('en'));
+        
+        // Инициализация - страница загружается на английском
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('lang-en').classList.add('active');
+        });
+    </script>
+</body>
+</html>
