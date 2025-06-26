@@ -1,0 +1,57 @@
+1. Селезнёв И, Коссов Г,  Влияние настраиваемых параметров полносвязной нейронной сети на качество предсказания для задачи классификации литотипов, Марчуковские научные чтения, 2022, Новосибирск
+2. Коссов Г., Макиенко Д, Использование методов автоматического количественного анализа фотографий для решения проблемы сопоставления глубины в геофизических исследованиях, 65 конференция МФТИ, Долгопрудный, 2023 (лучший доклад на секции)
+3. Абашкин В, Коссов Г, Лаврентьев М, Макиенко Д, Селезнёв И, Чертова А, Использование алгоритмов машинного зрения для выделения тонкослоистых коллекторов по фотографиям керна и данным ГИС, Российская отраслевая энергетическая конференция (РОЭК), 2023 Москва
+5. Абашкин В, Зайцев Т, Коссов Г, Макиенко Д, Селезнёв И, Применение сверточных и полносвязных нейронных сетей для автоматического поиска дефектов на фотографиях керна, форум ТННЦ, Тюмень 2023
+6. Коссов Г., Макиенко Д., Автоматическая предобработка фотографий керна с помощью сверточных и полносвязных нейронных сетей, 66 конференция МФТИ, 2024, Долгопрудный
+7. Г. Коссов, АЛГОРИТМ АВТОМАТИЧЕСКОЙ УВЯЗКИ ДАННЫХ ГИС С ФОТОГРАФИЯМИ КЕРНА, Геоевразия 2024, Москва
+9. Коссов Г, Абашкин В, Макиенко Д, Селезнёв И,  Применение сверточных и полносвязных нейронных сетей для автоматических исследований фотографий и томографий трещиноватых карбонатов, Интеллектуальный анализ данных в нефтегазовой отрасли (Геомодель), Калининград, 2024 
+10. Коссов Г., Макиенко Д., Методика автоматической обработки фотографий и томографий трещиноватых карбонатов для анализа кавернозности, 67 конференция МФТИ, 2025, Долгопрудный
+ (Текущий семестр, Лучший доклад на секции)
+
+- ещё одна конфа МФТИ (63)
+- эльбрус
+- эльбрус
+- тффгэ теплофизика
+- что-то ещё геленджик
+
+8. Коссов Г, Комплексная методика автоматической увязки данных ГИС и фотографий керна,  научно-технический семинар НГУ, 2024
+
+International Conference Marchuk Scientific Readings 2022, Influence of neural network
+parameters for the quality of prediction for the tasks of automatic lithotype description
+• XI All-Russian conference Fuel combustion: theory, experiment, applications 2021, Image
+Processing for Estimating Flame Dynamics
+• XXXVI International Conference on Interaction of Intense Energy Fluxes with Matter 2021, Image
+processing for analysis methane-air flame front dynamics
+• XXXVI International Conference on Interaction of Intense Energy Fluxes with Matter 2021,
+M-flame under external acoustic field
+• 63 All-Russian Scientific Conference of MIPT 2020, Image Processing Technique for Premixed
+Mixtures Flames
+
+- 66 All-Russian Scientific Conference of MIPT 2024, Usage of CNN and FFNN to automated whole core image preprocessing
+- GeoEurasia 2024 , Automated workflow for depth-shifting GWL curves to the drill core images
+- TNNC 2023 forum, Usage of CNN and FFNN to detect defects in drill-core photos
+- ROEK 2023 conference, Usage of ML algorithms to identify thin-bed reservoirs from whole core images and GWL data
+- 65 All-Russian Scientific Conference of MIPT 2023, Using methods of automatic core images analysis to solve the problem of GWL depth matching (Diploma for the best report)
+- International Conference Marchuk Scientific Readings 2022, Influence of neural network parameters for the quality of prediction for the tasks of automatic lithotype description
+- XI All-Russian conference Fuel combustion: theory, experiment, applications 2021, Image Processing for Estimating Flame Dynamics
+- VI All-Russian Scientific Conference THERMOPHYSICS and PHYSICAL HYDRODYNAMICS 2021, CONDITIONS OF M-V-M TRANSITIONS AND DEGENERATION OF HYSTERESIS DURING ACOUSTIC EXCITATION OF A REVERSE CONICAL FLAME
+- Крикунова А.И., Арефьев К.Ю., Савельев А.С., Коссов Г.А., Чешко А.Д. "Условия М-V-M
+переходов и вырождение гистерезиса при акустическом возбуждении обратного
+конического пламени"
+
+- XXXVI International Conference on Interaction of Intense Energy Fluxes with Matter 2021, Image processing for analysis methane-air flame front dynamics
+- XXXVI International Conference on Interaction of Intense Energy Fluxes with Matter 2021, M-flame under external acoustic field
+- 63 All-Russian Scientific Conference of MIPT 2020, Image Processing Technique for Premixed Mixtures Flames
+
+
+EXTERNAL PRESENTATIONS (without paper publication):
+- Geowebinar "The methods of digital processing of core images", June 2023
+4. ИСПОЛЬЗОВАНИЕ МЕТОДОВ АВТОМАТИЧЕСКОГО КОЛИЧЕСТВЕННОГО АНАЛИЗА ФОТОГРАФИЙ ДЛЯ РЕШЕНИЯ ПРОБЛЕМЫ СОПОСТАВЛЕНИЯ ГЛУБИНЫ В ГЕОФИЗИЧЕСКИХ ИССЛЕДОВАНИЯХ, Геовебинары, 2023
+
+pet projects
+Participated in Rosneft Challenge, 2022 (ML competition)
+• Participated in the KAGGLE competition, 2022 (ML competition)
+• Studied acoustic levitation and standing waves. Built a setup. Presented at the MIPT open day
+in 2018, 2019 and at the 2019 All-Russian Science Festival
+• Built a setup for observing sonoluminescence in liquid (standing waves in liquid), 2020
+• Built a Rubens tube (for demonstrating acoustic standing waves in a tube), 2020
