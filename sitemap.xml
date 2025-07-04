@@ -2,8 +2,8 @@
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://gkossov.github.io/Geo_Geogre/</loc>
-    <lastmod>2024-06-27</lastmod> <!-- Актуальная дата -->
-    <changefreq>daily</changefreq> <!-- daily → monthly (если контент не меняется каждый день) -->
+    <lastmod>2024-07-04</lastmod> 
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 </urlset>
