@@ -564,9 +564,9 @@
      
 
     <div style="margin-top: 20px; text-align: center;">
-        <a href="https://info.flagcounter.com/TdSY">
-          <img src="https://s01.flagcounter.com/count2/TdSY/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" 
-            alt="Flag Counter" border="0">
+        <a href="https://www.flagcounter.me/details/f5B">
+            <img src="https://www.flagcounter.me/f5B/" 
+            alt="Flag Counter">
         </a>
       </div>
 
@@ -605,5 +605,111 @@
             document.getElementById('lang-en').classList.add('active');
         });
     </script>
+
+    <!-- Добавьте эту кнопку в раздел контактов перед или после списка соцсетей -->
+    <button id="download-resume" style="
+        background-color: #0066cc;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+        margin: 20px 0;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    ">
+        <span data-ru="Скачать резюме (PDF)" data-en="Download Resume (PDF)">Download Resume (PDF)</span>
+    </button>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        document.getElementById('download-resume').addEventListener('click', function() {
+            // Инициализация jsPDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Получаем текущий язык
+            const currentLang = document.documentElement.lang || 'en';
+
+            // Устанавливаем шрифт и размер
+            doc.setFont('helvetica');
+            doc.setFontSize(12);
+
+            // Добавляем заголовок
+            doc.setFontSize(20);
+            doc.setTextColor(40);
+            doc.text(currentLang === 'ru' ? 'Резюме Георгия Коссова' : 'George Kossov Resume', 105, 20, { align: 'center' });
+
+            // Добавляем основную информацию
+            doc.setFontSize(14);
+            doc.text(document.querySelector('h1').textContent, 20, 30);
+            doc.setFontSize(12);
+            doc.text(document.querySelector('.subtitle').textContent, 20, 36);
+
+            // Добавляем раздел "О себе"
+            doc.setFontSize(16);
+            doc.text(currentLang === 'ru' ? 'О себе' : 'About', 20, 50);
+            doc.setFontSize(12);
+            const aboutText = doc.splitTextToSize(document.querySelector('#about p').textContent, 170);
+            doc.text(aboutText, 20, 60);
+
+            // Добавляем раздел "Опыт работы"
+            doc.setFontSize(16);
+            doc.text(currentLang === 'ru' ? 'Опыт работы' : 'Experience', 20, 80);
+            doc.setFontSize(12);
+
+            let yPosition = 90;
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => {
+                const date = item.querySelector('.timeline-date')?.textContent.trim() || '';
+                const title = item.querySelector('h3')?.textContent.trim() || '';
+                const company = item.querySelector('h4')?.textContent.trim() || '';
+                const description = item.querySelector('.job-description')?.textContent.trim() || '';
+
+                doc.setFont('helvetica', 'bold');
+                doc.text(`${date} - ${title}`, 20, yPosition);
+                doc.setFont('helvetica', 'normal');
+                doc.text(company, 20, yPosition + 5);
+
+                const descLines = doc.splitTextToSize(description, 170);
+                doc.text(descLines, 20, yPosition + 10);
+
+                yPosition += 20 + (descLines.length * 6);
+
+                // Проверяем, не вышли ли за пределы страницы
+                if (yPosition > 250) {
+                    doc.addPage();
+                    yPosition = 20;
+                }
+            });
+
+            // Добавляем раздел "Навыки"
+            doc.setFontSize(16);
+            doc.text(currentLang === 'ru' ? 'Навыки' : 'Skills', 20, yPosition + 10);
+            doc.setFontSize(12);
+
+            const skillsItems = document.querySelectorAll('#research ul li');
+            skillsItems.forEach((item, index) => {
+                doc.text(`• ${item.textContent}`, 20, yPosition + 20 + (index * 7));
+
+                if (yPosition + 20 + (index * 7) > 250) {
+                    doc.addPage();
+                    yPosition = 20;
+                }
+            });
+
+            // Добавляем контакты
+            doc.setFontSize(16);
+            doc.text(currentLang === 'ru' ? 'Контакты' : 'Contact', 20, yPosition + 30 + (skillsItems.length * 7));
+            doc.setFontSize(12);
+            doc.text(document.querySelector('#contact p').textContent, 20, yPosition + 40 + (skillsItems.length * 7));
+
+            // Сохраняем PDF
+            doc.save(currentLang === 'ru' ? 'Резюме_Георгий_Коссов.pdf' : 'George_Kossov_Resume.pdf');
+        });
+    </script>
+  
 </body>
 </html>
