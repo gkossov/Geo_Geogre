@@ -560,7 +560,7 @@
         </ul>
     </section>
      
-    <button id="download-resume" style="
+    <!-- <button id="download-resume" style="
         background-color: #0066cc;
         color: white;
         border: none;
@@ -574,7 +574,7 @@
         margin-right: auto;
     ">
         <span data-ru="Скачать резюме (PDF)" data-en="Download Resume (PDF)">Download Resume (PDF)</span>
-    </button>
+    </button> -->
 
     <div style="margin-top: 20px; text-align: center;">
         <a href="https://www.flagcounter.me/details/f5B">
@@ -622,34 +622,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script>
         document.getElementById('download-resume').addEventListener('click', function() {
-            // Инициализация jsPDF
+           
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
 
-            // Получаем текущий язык
             const currentLang = document.documentElement.lang || 'en';
 
-            // Устанавливаем шрифт и размер
-            doc.setFont('helvetica');
-            doc.setFontSize(12);
+            doc.setFont('DejaVu Sans');
+            doc.setFontSize(11);
 
             // Добавляем заголовок
             doc.setFontSize(20);
             doc.setTextColor(40);
-            doc.text(currentLang === 'ru' ? 'Резюме Георгия Коссова' : 'George Kossov Resume', 105, 20, { align: 'center' });
+            doc.text(currentLang === 'ru' ? 'Георгий Коссов' : 'George Kossov', 105, 20, { align: 'center' });
 
             // Добавляем основную информацию
             doc.setFontSize(14);
             doc.text(document.querySelector('h1').textContent, 20, 30);
             doc.setFontSize(12);
             doc.text(document.querySelector('.subtitle').textContent, 20, 36);
-
-            // Добавляем раздел "О себе"
-            doc.setFontSize(16);
-            doc.text(currentLang === 'ru' ? 'О себе' : 'About', 20, 50);
-            doc.setFontSize(12);
-            const aboutText = doc.splitTextToSize(document.querySelector('#about p').textContent, 170);
-            doc.text(aboutText, 20, 60);
 
             // Добавляем раздел "Опыт работы"
             doc.setFontSize(16);
@@ -664,9 +655,9 @@
                 const company = item.querySelector('h4')?.textContent.trim() || '';
                 const description = item.querySelector('.job-description')?.textContent.trim() || '';
 
-                doc.setFont('helvetica', 'bold');
+                doc.setFont('DejaVu Sans', 'bold');
                 doc.text(`${date} - ${title}`, 20, yPosition);
-                doc.setFont('helvetica', 'normal');
+                doc.setFont('DejaVu Sans', 'normal');
                 doc.text(company, 20, yPosition + 5);
 
                 const descLines = doc.splitTextToSize(description, 170);
@@ -696,14 +687,7 @@
                 }
             });
 
-            // Добавляем контакты
-            doc.setFontSize(16);
-            doc.text(currentLang === 'ru' ? 'Контакты' : 'Contact', 20, yPosition + 30 + (skillsItems.length * 7));
-            doc.setFontSize(12);
-            doc.text(document.querySelector('#contact p').textContent, 20, yPosition + 40 + (skillsItems.length * 7));
-
-            // Сохраняем PDF
-            doc.save(currentLang === 'ru' ? 'Резюме_Георгий_Коссов.pdf' : 'George_Kossov_Resume.pdf');
+            doc.save(currentLang === 'ru' ? 'Георгий_Коссов.pdf' : 'George_Kossov.pdf');
         });
     </script>
   
