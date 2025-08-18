@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="George Kossov – AI/ML Researcher bridging Computer Vision and Geosciences. Publications on Deep Neural Networks (CNNs), LLMs, and AI-driven solutions for Sedimentology, Petrophysics, and Geological Modeling.">
+    <meta name="keywords" content="George Kossov, AI, Artificial Intelligence, Machine Learning, Deep Learning, CNN, Computer Vision, LLM, Large Language Models, Geology, Geophysics, Petrophysics, Sedimentology, Well Log Analysis, Reservoir Characterization, Research, Publications, Neural Networks, Transformers, PyTorch, TensorFlow">
+    <meta name="author" content="George Kossov">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>George Kossov - AI, Geophysics and Geology researcher</title>
+    <style>
+        body {
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        header {
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .header-content {
+            text-align: left;
+        }
+        
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #f0f0f0;
+        }
+        
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 0;
+        }
+        
+        /* Навигация */
+        nav {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        nav a {
+            margin: 0 15px;
+            font-size: 1.1em;
+        }
+        
+        section {
+            margin-bottom: 40px;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        /* Цветовые секции */
+        .white-section {
+            background-color: white;
+        }
+        
+        .gray-section {
+            background-color: #f8f8f8;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .publication {
+            margin-bottom: 20px;
+        }
+        
+        .pub-title {
+            font-weight: bold;
+        }
+        
+        .pub-authors {
+            font-style: italic;
+        }
+        
+        /* Таймлайн */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 30px auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color:  #666;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #f8f8f8;
+            border: 4px solid #666;
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 0%;
+        }
+        
+        .left::after {
+            right: -12px;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-date {
+            display: flex;
+            align-items: flex-start;
+            font-weight: bold;
+            color: #666;
+            gap: 10px;
+        }
+        
+        .company-logo {
+            height: 30px;
+            object-fit: contain;
+    
+        }
+        .job-photo {
+            width: 70%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        
+        .job-description {
+            margin-top: 10px;
+        }
+        
+        /* Подвал */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        /* Переключатель языка */
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        
+        .language-switcher button {
+            background: none;
+            border: none;
+            color: #0066cc;
+            cursor: pointer;
+            padding: 5px;
+            font-size: 0.9em;
+        }
+        
+        .language-switcher button.active {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .header-content {
+                text-align: center;
+            }
+            
+            .profile-photo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .language-switcher {
+                position: static;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            
+            /* Адаптивный таймлайн */
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .left::after, .right::after {
+                left: 21px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switcher">
+        <button id="lang-en" class="active">EN</button>
+        <button id="lang-ru">RU</button>
+    </div>
+
+    <header>
+        <img src="assets/avatar.jpg" alt="Profile Photo" class="profile-photo">
+        <div class="header-content">
+            <h1 data-ru="Георгий Коссов" data-en="George Kossov">George Kossov</h1>
+            <div class="subtitle" data-ru="Исследования в области искусственного интеллекта, геофизики и геологии" data-en="AI, Geophysics and Geology researcher">AI, Geophysics and Geology researcher</div>
+        </div>
+    </header>
+    
+    <nav>
+        <a href="#about" data-ru="Обо мне" data-en="About">About</a>
+        <a href="#experience" data-ru="Опыт работы" data-en="Experience">Experience</a>
+        <a href="#research" data-ru="Исследования" data-en="Research">Research</a>
+        <a href="#contact" data-ru="Контакты" data-en="Contact">Contact</a>
+    </nav>
+    
+    <section id="about" class="gray-section">
+        <h2 data-ru="Обо мне" data-en="About">About</h2>
+        <p data-ru="Я — исследователь в области искусственного интеллекта и геофизики🌍, применяю методы глубокого обучения, компьютерного зрения и обработки естественного языка в геологии и геофизике. В настоящее время я студент аспирантуры МФТИ." 
+           data-en="I'm a researcher in AI and geophysics🌍, applying deep learning and natural language processing in Geophysics and Geology. Currently, I PHD student at MIPT">
+           I'm a researcher in AI and geophysics🌍, applying deep learning and natural language processing in Geophysics and Geology. Currently, I PHD student at MIPT.
+        </p>
+        <p data-ru="Область моих научных интересов: компьютерное зрение, глубокие нейронные сети, большие языковые модели, петрофизика, седиментология, общая геология" 
+           data-en="My research interests include: computer vision, deep neural networks, large language models, petrophysics, sedimentology, and general geology.">
+           My research interests include: 
+           computer vision, 
+           deep neural networks, 
+           large language models, 
+           petrophysics, sedimentology, and general geology.
+        </p>
+    </section>
+
+    <section id="experience" class="white-section">
+        <h2 data-ru="Опыт работы" data-en="Experience">Experience</h2>
+        
+        <div class="timeline">
+            
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <div class="timeline-date">
+                        2023 -
+                        <img src="assets\mip2.png" alt="Company Logo" class="company-logo">
+                        <img src="assets\slb_logo.png" alt="University Logo" class="company-logo">
+                    </div>
+                
+                    <h3 data-ru="Аспирант" data-en="PhD Student">PhD Student (Average Grade: 9.5/10)</h3>
+                    <h4 data-ru="Московский физико-технический институт " data-en="Moscow Institute of Physics and Technology (Russian Federation)">Moscow Institute of Physics and Technology (Russian Federation)</h4>
+                    <div class="job-description" data-ru="Создание прототипов продуктов на основе ИИ. Участие в исследованиях компьютерного зрения. Внедрение моделей в производство." 
+                         data-en="Building AI-based product prototypes. Conducting computer vision research. Deploying models to production.">
+                         Building AI-based product prototypes. Conducting computer vision research. Deploying models to production.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <div class="timeline-date">
+                        2021 - 2023
+                        <img src="assets\mip2.png" alt="University Logo" class="company-logo">
+                        <img src="assets\ros_logo.png" alt="University Logo" class="company-logo">
+                        <img src="assets\slb_logo.png" alt="University Logo" class="company-logo">
+                    </div>
+                    
+                    <h3 data-ru="Магистр, Прикладные математика и физика" data-en="Masters, Applied Science">Masters, Applied Science</h3>
+                    <h4 data-ru="Московский физико-технический институт " data-en="Moscow Institute of Physics and Technology (Russian Federation)">Moscow Institute of Physics and Technology (Russian Federation)</h4>
+                    <div class="job-description" data-ru="Тема магистерской диссертации: Влияние осложняющих факторов на снижение производительности скважины с трещиной ГРП" 
+                         data-en="Thesis/Major: The effect of residual gel on the productivity of a well with a propped fracture">
+                         Thesis/Major: The effect of residual gel on the productivity of a well with a propped fracture
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <div class="timeline-date">
+                        2017 - 2021
+                        <img src="assets\mip2.png" alt="University Logo" class="company-logo">
+                        <img src="assets\jiht.png" alt="University Logo" class="company-logo">
+                        
+                    </div>
+                    <h3 data-ru="Бакалавриат, Прикладные математика и физика" data-en="Bachelors, Applied Science">Bachelors, Applied Science</h3>
+                    <h4 data-ru="Московский физико-технический институт " data-en="Moscow Institute of Physics and Technology (Russian Federation)">Moscow Institute of Physics and Technology (Russian Federation)</h4>
+                    <div class="job-description" data-ru="Тема дипломной работы: Решение обратной задачи теплопроводности для определения коэффициента теплопроводности" 
+                         data-en="Thesis/Major: Solving the inverse problem of thermal conductivity to determine the coefficient of thermal conductivity">
+                         Thesis/Major: Solving the inverse problem of thermal conductivity to determine the coefficient of thermal conductivity
+                    </div>
+                    <img src="assets/flame.JPG" alt="Research Photo" class="job-photo">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="Expertise" class="gray-section">
+        <h2 data-ru="Образование" data-en="Expertise">Expertise</h2>
+        <ul>
+            <li>
+                <div class="publication">
+                    <div class="pub-title" data-ru="Moscow Institute of Physics and Technology" data-en="Moscow Institute of Physics and Technology">Moscow Institute of Physics and Technology with honors (2021 – 2023)</div>
+                    <div class="pub-authors" data-ru="Master of Applied Mathematics and Physics" data-en="Master of Applied Mathematics and Physics">Master of Applied Mathematics and Physics (Speciality: Fundamental and Applied Geophysics)</div>
+                    <div class="pub-authors" data-ru="Master of Applied Mathematics and Physics" data-en="Master of Applied Mathematics and Physics">Average Grade: 9.26/10; ranking top-5% of the department</div>
+                </div>
+            </li>
+
+            <li>
+                <div class="publication">
+                    <div class="pub-title" data-ru="Moscow Institute of Physics and Technology" data-en="Moscow Institute of Physics and Technology">Moscow Institute of Physics and Technology (2017 – 2021)</div>
+                    <div class="pub-authors" data-ru="Bachelor of Applied Mathematics and Physics" data-en="Bachelor of Applied Mathematics and Physics">Bachelor of Applied Mathematics and Physics</div>
+                </div>
+            </li>
+   
+        </ul>
+    </section>
+    
+    <section id="research" class="gray-section">
+        <h2 data-ru="Исследования" data-en="Research">Research</h2>
+        <p data-ru="Мои исследовательские интересы включают:" data-en="My research interests include:">
+           My research interests include:
+        </p>
+        <ul>
+            <li data-ru="Глубокое обучение" data-en="Deep Learning">Deep Learning</li>
+            <li data-ru="Обработка естественного языка" data-en="Natural Language Processing">Natural Language Processing</li>
+            <li data-ru="Генеративные модели" data-en="Generative Models">Generative Models</li>
+            <li data-ru="Обучение с подкреплением" data-en="Reinforcement Learning">Reinforcement Learning</li>
+        </ul>
+        
+        <h3 data-ru="Статьи" data-en="Papers">Papers</h3>
+        <div class="publication">
+            <div class="pub-title" data-ru="Новая методика текстурно-структурного анализа имиджей с помощью алгоритмов глубокого обучения (PREPRINT)" data-en="A new state-of-the-art technique for textural and structural microimager data analysis using deep learning algorithms (PREPRINT)">A new state-of-the-art technique for textural and structural microimager data analysis using deep learning algorithms (PREPRINT)</div>
+            <div class="pub-authors" data-ru="Коссов Г.А., Абашкин В.В., Егоров С.С., Макиенко Д.О., Гаева В.А." data-en="Kossov G.A., Abashkin V.V., Egorov S.S., Makienko D.O., Gaeva V.A.">Kossov G.A., Abashkin V.V., Egorov S.S., Makienko D.O., Gaeva V.A.</div>
+            <div class="pub-venue" data-ru="ГЕОРЕСУРСЫ , 2025" data-en="Georesursy = Georesources, 2025">Georesursy = Georesources, 2025</div>
+            <div class="pub-links">
+                [<a href="assets\papers\Kossov_FMI_proc.pdf" data-ru="PDF" data-en="PDF">PDF</a>] 
+            </div>
+        </div>
+        <div class="publication">
+            <div class="pub-title" data-ru="Опыт применения методики автоматической увязки данных геофизических исследований скважин с фотографиями керна на карбонатных и терригенных месторождениях (PREPRINT)" data-en="Applying the automated depth-shifting workflow of well logging data and whole core images for carbonate and clastic reservoirs (PREPRINT)">Applying the automated depth-shifting workflow of well logging data and whole core images for carbonate and clastic reservoirs (PREPRINT)</div>
+            <div class="pub-authors" data-ru="Коссов Г., Абашкин В., Езерский Д." data-en="Kossov G.A., Abashkin V.V., Ezersky D.M. ">Kossov G.A., Abashkin V.V., Ezersky D.M. </div>
+            <div class="pub-venue" data-ru="ГЕОРЕСУРСЫ , 2025" data-en="Georesursy = Georesources, 2025">Georesursy = Georesources, 2025</div>
+            <div class="pub-links">
+                [<a href="assets\papers\Kossov_primenenie_metodiki_uvyazki.pdf" data-ru="PDF" data-en="PDF">PDF</a>] 
+            </div>
+        </div>
+        <div class="publication">
+            <div class="pub-title" data-ru="МЕТОД АВТОМАТИЧЕСКОЙ УВЯЗКИ РЕЗУЛЬТАТОВ ГЕОФИЗИЧЕСКИХ ИССЛЕДОВАНИЙ СКВАЖИН С ФОТОГРАФИЯМИ КЕРНА" data-en="AUTOMATED WORKFLOW FOR DEPTH-SHIFTING OF GEOPHYSICAL WELL LOGGING CURVES TO THE WHOLE CORE IMAGES">AUTOMATED WORKFLOW FOR DEPTH-SHIFTING OF GEOPHYSICAL WELL LOGGING CURVES TO THE WHOLE CORE IMAGES</div>
+            <div class="pub-authors" data-ru="Абашкин В., Коссов Г." data-en="ABASHKIN V.V., KOSSOV G.A.">ABASHKIN V.V., KOSSOV G.A.</div>
+            <div class="pub-venue" data-ru="Геофизика, 2024" data-en="GEOPHYSICS, 2024">GEOPHYSICS, 2024</div>
+            <div class="pub-links">
+                [<a href="assets\papers\Depth_shifting_problem.pdf" data-ru="PDF" data-en="PDF">PDF</a>]
+            </div>
+        </div>
+        <div class="publication">
+            <div class="pub-title" data-ru="Влияние настраиваемых параметров полносвязной нейронной сети на качество предсказания для задачи классификации литотипов" data-en="Influence of neural network parameters for the quality of prediction for the tasks of automatic lithotype description">Influence of neural network parameters for the quality of prediction for the tasks of automatic lithotype description</div>
+            <div class="pub-authors" data-ru="Коссов Г.А., Селезнев И.А." data-en="Kossov, G. A., Seleznev, I. A.">Kossov, G. A., Seleznev, I. A.</div>
+            <div class="pub-venue" data-ru="Проблемы информатики, 2022" data-en="Problems of Informatics, 2022">Problems of Informatics, 2022</div>
+            <div class="pub-links">
+                [<a href="assets\papers\elibrary_54899238_16410195.pdf" data-ru="PDF" data-en="PDF">PDF</a>] 
+            </div>
+        </div>
+        <div class="publication">
+            <div class="pub-title" data-ru="Inverted conical methane/air flame shape transformation under acoustic excitation." data-en="Inverted conical methane/air flame shape transformation under acoustic excitation.">Inverted conical methane/air flame shape transformation under acoustic excitation.</div>
+            <div class="pub-authors" data-ru="Krikunova, A. I., Arefyev, K. Y., Saveliev, A. S., Kossov, G. A. and Cheshko, A. D." data-en="Krikunova, A. I., Arefyev, K. Y., Saveliev, A. S., Kossov, G. A. and Cheshko, A. D.">Krikunova, A. I., Arefyev, K. Y., Saveliev, A. S., Kossov, G. A. and Cheshko, A. D.</div>
+            <div class="pub-venue" data-ru="Physics of Fluids (Q1), 33(5), 053610, 2021" data-en="Physics of Fluids (Q1), 33(5), 053610, 2021">Physics of Fluids (Q1), 33(5), 053610, 2021</div>
+            <div class="pub-links">
+                [<a href="assets\papers\inverted_conical_methane_flame.pdf" data-ru="PDF" data-en="PDF">PDF</a>]
+            </div>
+        </div>
+        <div class="publication">
+            <div class="pub-title" data-ru="Flame chemiluminescence image processing using operator Canny" data-en="Flame chemiluminescence image processing using operator Canny">Flame chemiluminescence image processing using operator Canny</div>
+            <div class="pub-authors" data-ru="Krikunova, A. I., Kossov, G. A." data-en="Krikunova, A. I., Kossov, G. A.">Krikunova, A. I., Kossov, G. A.</div>
+            <div class="pub-venue" data-ru="Journal of Physics: Conference Series, 2021" data-en="Journal of Physics: Conference Series, 2021">Journal of Physics: Conference Series, 2021</div>
+            <div class="pub-links">
+                [<a href="assets\papers\Article_elbrus.pdf" data-ru="PDF" data-en="PDF">PDF</a>]
+            </div>
+        </div>
+
+        <h3 data-ru="Конференции" data-en="Conferences">Conferences</h3>
+     
+        <div class="publication">
+            <div class="pub-title" data-ru="Метод нейросетевой фильтрации фазово-модулированного сигнала гидроканальной телеметрии" data-en="Метод нейросетевой фильтрации фазово-модулированного сигнала гидроканальной телеметрии">Метод нейросетевой фильтрации фазово-модулированного сигнала гидроканальной телеметрии</div>
+            <div class="pub-authors" data-ru="" data-en=""></div>
+            <div class="pub-venue" data-ru="67 All-Russian Scientific Conference of MIPT, Moscow, 2025" data-en="67 All-Russian Scientific Conference of MIPT, Moscow, 2025">67 All-Russian Scientific Conference of MIPT, Moscow, 2025</div>
+            <div class="pub-links">
+                [<a href="assets\conferences\Roma_MIPT_2025.pdf" data-ru="PDF" data-en="PDF">PDF</a>]
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="pub-title" data-ru="Методика автоматической обработки фотографий и томографий трещиноватых карбонатов для анализа кавернозности (BEST REPORT)" data-en="Методика автоматической обработки фотографий и томографий трещиноватых карбонатов для анализа кавернозности (BEST REPORT)">Методика автоматической обработки фотографий и томографий трещиноватых карбонатов для анализа кавернозности (BEST REPORT)</div>
+            <div class="pub-authors" data-ru="" data-en=""></div>
+            <div class="pub-venue" data-ru="67 All-Russian Scientific Conference of MIPT, Moscow, 2025" data-en="67 All-Russian Scientific Conference of MIPT, Moscow, 2025">67 All-Russian Scientific Conference of MIPT, Moscow, 2025</div>
+            <div class="pub-links">
+                [<a href="assets\conferences\MIPT_abstract_2025.pdf" data-ru="PDF" data-en="PDF">PDF</a>]
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="pub-title" data-ru="Применение сверточных и полносвязных нейронных сетей для автоматических исследований фотографий и томографий трещиноватых карбонатов" data-en="Применение сверточных и полносвязных нейронных сетей для автоматических исследований фотографий и томографий трещиноватых карбонатов">Применение сверточных и полносвязных нейронных сетей для автоматических исследований фотографий и томографий трещиноватых карбонатов</div>
+            <div class="pub-authors" data-ru="" data-en=""></div>
+            <div class="pub-venue" data-ru="Интеллектуальный анализ данных в нефтегазовой отрасли (Геомодель), Калининград, 2024" data-en="V Data Science in Oil & Gas Conference (Geomodel), Kaliningrad, 2024">V Data Science in Oil & Gas Conference (Geomodel), Kaliningrad, 2024</div>
+            <div class="pub-links">
+                [<a href="assets\conferences\DATA_SCIENCE_2024.pdf" data-ru="PDF" data-en="PDF">PDF</a>]
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="pub-title" data-ru="Usage of CNN and FFNN to automated whole core image preprocessing" data-en="Usage of CNN and FFNN to automated whole core image preprocessing">Usage of CNN and FFNN to automated whole core image preprocessing</div>
+            <div class="pub-authors" data-ru="" data-en=""></div>
+            <div class="pub-venue" data-ru="66 All-Russian Scientific Conference of MIPT, Moscow, 2024" data-en="66 All-Russian Scientific Conference of MIPT, Moscow, 2024">66 All-Russian Scientific Conference of MIPT, Moscow, 2024</div>
+            <div class="pub-links">
+                [<a href="assets\conferences\MIPT_abstract_2024.pdf" data-ru="PDF" data-en="PDF">PDF</a>]
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="pub-title" data-ru="Automated workflow for depth-shifting GWL curves to the drill core images" data-en="Automated workflow for depth-shifting GWL curves to the drill core images">Automated workflow for depth-shifting GWL curves to the drill core images</div>
+            <div class="pub-authors" data-ru="" data-en=""></div>
+            <div class="pub-venue" data-ru="GeoEurasia, Moscow, 2024" data-en="GeoEurasia, Moscow, 2024">GeoEurasia, Moscow, 2024</div>
+            <div class="pub-links">
+                [<a href="assets\conferences\GEO_EURASIA_2024.pdf" data-ru="PDF" data-en="PDF">PDF</a>]
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="pub-title" data-ru="Usage of CNN and FFNN to detect defects in drill-core photos" data-en="Usage of CNN and FFNN to detect defects in drill-core photos">Usage of CNN and FFNN to detect defects in drill-core photos</div>
+            <div class="pub-authors" data-ru="" data-en=""></div>
+            <div class="pub-venue" data-ru="TNNC 2023 forum, Tymen, 2023" data-en="TNNC 2023 forum, Tymen, 2023">TNNC 2023 forum, Tymen, 2023</div>
+            <div class="pub-links">
+                [<a href="assets\conferences\tymen.pdf" data-ru="PDF" data-en="PDF">PDF</a>]
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="pub-title" data-ru="Usage of ML algorithms to identify thin-bed reservoirs from whole core images and GWL data" data-en="Usage of ML algorithms to identify thin-bed reservoirs from whole core images and GWL data">Usage of ML algorithms to identify thin-bed reservoirs from whole core images and GWL data</div>
+            <div class="pub-authors" data-ru="" data-en=""></div>
+            <div class="pub-venue" data-ru="ROEK 2023 conference, Moscow, 2023" data-en="ROEK 2023 conference, Moscow, 2023">ROEK 2023 conference, Moscow, 2023</div>
+            <div class="pub-links">
+                [<a href="assets\conferences\ROEK__2023_VA.pdf" data-ru="PDF" data-en="PDF">PDF</a>]
+            </div>
+        </div>
+        <div class="publication">
+            <div class="pub-title" data-ru="Using methods of automatic core images analysis to solve the problem of GWL depth matching (BEST REPORT)" data-en="Using methods of automatic core images analysis to solve the problem of GWL depth matching (BEST REPORT)">Using methods of automatic core images analysis to solve the problem of GWL depth matching (BEST REPORT)</div>
+            <div class="pub-authors" data-ru="" data-en=""></div>
+            <div class="pub-venue" data-ru="65 All-Russian Scientific Conference of MIPT, Moscow, 2023" data-en="65 All-Russian Scientific Conference of MIPT, Moscow, 2023">65 All-Russian Scientific Conference of MIPT, Moscow, 2023</div>
+            <div class="pub-links">
+                [<a href="assets\conferences\MIPT_abstract_2023.pdf" data-ru="PDF" data-en="PDF">PDF</a>]
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="pub-title" data-ru="Influence of neural network parameters for the quality of prediction for the tasks of automatic lithotype description" data-en="Influence of neural network parameters for the quality of prediction for the tasks of automatic lithotype description">Influence of neural network parameters for the quality of prediction for the tasks of automatic lithotype description</div>
+            <div class="pub-authors" data-ru="" data-en=""></div>
+            <div class="pub-venue" data-ru="International Conference Marchuk Scientific Readings, Novosibirsk, 2022" data-en="International Conference Marchuk Scientific Readings, Novosibirsk, 2022">International Conference Marchuk Scientific Readings, Novosibirsk, 2022</div>
+        </div>
+        <div class="publication">
+            <div class="pub-title" data-ru="Image Processing for Estimating Flame Dynamics" data-en="Image Processing for Estimating Flame Dynamics">Image Processing for Estimating Flame Dynamics</div>
+            <div class="pub-authors" data-ru="" data-en=""></div>
+            <div class="pub-venue" data-ru="XI All-Russian conference Fuel combustion: theory, experiment, applications, Novosibirsk, 2021" data-en="XI All-Russian conference Fuel combustion: theory, experiment, applications, Novosibirsk, 2021">XI All-Russian conference Fuel combustion: theory, experiment, applications, Novosibirsk, 2021</div>
+            <div class="pub-links">
+                [<a href="assets\conferences\flame_novosib.pdf" data-ru="PDF" data-en="PDF">PDF</a>]
+            </div>
+        </div>
+        <div class="publication">
+            <div class="pub-title" data-ru="Условия М-V-M переходов и вырождение гистерезиса при акустическом возбуждении обратного конического пламени" data-en="CONDITIONS OF M-V-M TRANSITIONS AND DEGENERATION OF HYSTERESIS DURING ACOUSTIC EXCITATION OF A REVERSE CONICAL FLAME">CONDITIONS OF M-V-M TRANSITIONS AND DEGENERATION OF HYSTERESIS DURING ACOUSTIC EXCITATION OF A REVERSE CONICAL FLAME</div>
+            <div class="pub-authors" data-ru="" data-en=""></div>
+            <div class="pub-venue" data-ru="VI All-Russian Scientific Conference THERMOPHYSICS and PHYSICAL HYDRODYNAMICS, Yalta, 2021" data-en="VI All-Russian Scientific Conference THERMOPHYSICS and PHYSICAL HYDRODYNAMICS, Yalta, 2021">VI All-Russian Scientific Conference THERMOPHYSICS and PHYSICAL HYDRODYNAMICS, Yalta, 2021</div>
+        </div>
+        <div class="publication">
+            <div class="pub-title" data-ru="Image processing for analysis methane-air flame front dynamics" data-en="Image processing for analysis methane-air flame front dynamics">Image processing for analysis methane-air flame front dynamics</div>
+            <div class="pub-authors" data-ru="" data-en=""></div>
+            <div class="pub-venue" data-ru="XXXVI International Conference on Interaction of Intense Energy Fluxes with Matter, Elbrus, 2021" data-en="XXXVI International Conference on Interaction of Intense Energy Fluxes with Matter, Elbrus, 2021">XXXVI International Conference on Interaction of Intense Energy Fluxes with Matter, Elbrus, 2021</div>
+            <div class="pub-links">
+                [<a href="assets\conferences\elbrus_2.pdf" data-ru="PDF" data-en="PDF">PDF</a>]
+            </div>
+        </div>
+        <div class="publication">
+            <div class="pub-title" data-ru="M-flame under external acoustic field" data-en="M-flame under external acoustic field">M-flame under external acoustic field</div>
+            <div class="pub-authors" data-ru="" data-en=""></div>
+            <div class="pub-venue" data-ru="XXXVI International Conference on Interaction of Intense Energy Fluxes with Matter, Elbrus, 2021" data-en="XXXVI International Conference on Interaction of Intense Energy Fluxes with Matter, Elbrus, 2021">XXXVI International Conference on Interaction of Intense Energy Fluxes with Matter, Elbrus, 2021</div>
+            <div class="pub-links">
+                [<a href="assets\conferences\elbrus_1.pdf" data-ru="PDF" data-en="PDF">PDF</a>]
+            </div>
+        </div>
+        <div class="publication">
+            <div class="pub-title" data-ru="Image Processing Technique for Premixed Mixtures Flames (BEST REPORT)" data-en="Image Processing Technique for Premixed Mixtures Flames (BEST REPORT)">Image Processing Technique for Premixed Mixtures Flames (BEST REPORT)</div>
+            <div class="pub-authors" data-ru="" data-en=""></div>
+            <div class="pub-venue" data-ru="63 All-Russian Scientific Conference of MIPT, Moscow, 2020" data-en="63 All-Russian Scientific Conference of MIPT, Moscow, 2020">63 All-Russian Scientific Conference of MIPT, Moscow, 2020</div>
+            <div class="pub-links">
+                [<a href="assets\conferences\MIPT_2020.pdf" data-ru="PDF" data-en="PDF">PDF</a>]
+            </div>
+        </div>
+    </section>
+    
+    <section id="pet_projects" class="white-section">
+        <h2 data-ru="Интересные проекты" data-en="Pet projects">Pet projects</h2>
+        <ul>
+            <li data-ru="Глубокое обучение" data-en="Deep Learning">Participated in Gametone</li>
+            <li data-ru="Глубокое обучение" data-en="Deep Learning">Participated in Rosneft Challenge, 2022 (ML competition)</li>
+            <li data-ru="Глубокое обучение" data-en="Deep Learning">Participated in the KAGGLE competition, 2022 (ML competition)</li>
+            <li data-ru="Глубокое обучение" data-en="Deep Learning">Studied acoustic levitation and standing waves. Built a setup. Presented at the MIPT open day
+in 2018, 2019 and at the 2019 All-Russian Science Festival</li>
+            <li data-ru="Глубокое обучение" data-en="Deep Learning">Built a setup for observing sonoluminescence in liquid (standing waves in liquid), 2020</li>
+            <li data-ru="Глубокое обучение" data-en="Deep Learning">Built a Rubens tube (for demonstrating acoustic standing waves in a tube), 2020</li>
+            <li><a href="https://www.researchgate.net/profile/Georgy-Kossov">ResearchGate</a></li>
+            <li><a href="https://github.com/gkossov">GitHub</a></li>
+            <li><a href="https://scholar.google.com/citations?user=vAoAqOYAAAAJ&hl=ru">Google Scholar</a></li>
+        </ul>
+    </section>
+
+    <!--section id="contact" class="white-section">
+        <h2 data-ru="Контакты" data-en="Contact">Contact</h2>
+        <p data-ru="Лучший способ связаться со мной — по электронной почте: " 
+           data-en="The best way to reach me is by email: ">
+           The best way to reach me is by email: 
+           <a href="craftfox17@gmail.com">craftfox17@gmail.com</a>
+        </p>
+        <p data-ru="Вы также можете найти меня в:" data-en="You can also find me on:">
+           You can also find me on:
+        </p>
+        <ul>
+            <li><a href="https://www.researchgate.net/profile/Georgy-Kossov">ResearchGate</a></li>
+            <li><a href="https://github.com/gkossov">GitHub</a></li>
+            <li><a href="https://scholar.google.com/citations?user=vAoAqOYAAAAJ&hl=ru">Google Scholar</a></li>
+        </ul>
+    </section-->
+     
+    <!-- <button id="download-resume" style="
+        background-color: #0066cc;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+        margin: 20px 0;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    ">
+        <span data-ru="Скачать резюме (PDF)" data-en="Download Resume (PDF)">Download Resume (PDF)</span>
+    </button> -->
+
+    <div style="margin-top: 20px; text-align: center;">
+        <a href="https://www.flagcounter.me/details/f5B">
+            <img src="https://www.flagcounter.me/f5B/" 
+            alt="Flag Counter">
+        </a>
+      </div>
+
+    <footer>
+        <p data-ru="© 2025 Георгий Коссов. Все права защищены." data-en="© 2025 George Kossov. All rights reserved.">
+           © 2025 George Kossov. All rights reserved.
+        </p>
+    </footer>
+
+    <script>
+        // Функция для переключения языка
+        function switchLanguage(lang) {
+            // Обновляем активную кнопку
+            document.getElementById('lang-ru').classList.remove('active');
+            document.getElementById('lang-en').classList.remove('active');
+            document.getElementById('lang-' + lang).classList.add('active');
+            
+            // Обновляем атрибут lang у html
+            document.documentElement.lang = lang;
+            
+            // Обновляем все элементы с атрибутами data-ru и data-en
+            const elements = document.querySelectorAll('[data-ru], [data-en]');
+            elements.forEach(el => {
+                if (el.tagName !== 'A' || el.getAttribute('href').startsWith('#')) {
+                    el.textContent = el.getAttribute('data-' + lang);
+                }
+            });
+        }
+        
+        // Обработчики событий для кнопок переключения языка
+        document.getElementById('lang-ru').addEventListener('click', () => switchLanguage('ru'));
+        document.getElementById('lang-en').addEventListener('click', () => switchLanguage('en'));
+        
+        // Инициализация - страница загружается на английском
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('lang-en').classList.add('active');
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        document.getElementById('download-resume').addEventListener('click', function() {
+           
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            const currentLang = document.documentElement.lang || 'en';
+
+            doc.setFont('DejaVu Sans');
+            doc.setFontSize(11);
+
+            // Добавляем заголовок
+            doc.setFontSize(20);
+            doc.setTextColor(40);
+            doc.text(currentLang === 'ru' ? 'Георгий Коссов' : 'George Kossov', 105, 20, { align: 'center' });
+
+            // Добавляем основную информацию
+            doc.setFontSize(14);
+            doc.text(document.querySelector('h1').textContent, 20, 30);
+            doc.setFontSize(12);
+            doc.text(document.querySelector('.subtitle').textContent, 20, 36);
+
+            // Добавляем раздел "Опыт работы"
+            doc.setFontSize(16);
+            doc.text(currentLang === 'ru' ? 'Опыт работы' : 'Experience', 20, 80);
+            doc.setFontSize(12);
+
+            let yPosition = 90;
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => {
+                const date = item.querySelector('.timeline-date')?.textContent.trim() || '';
+                const title = item.querySelector('h3')?.textContent.trim() || '';
+                const company = item.querySelector('h4')?.textContent.trim() || '';
+                const description = item.querySelector('.job-description')?.textContent.trim() || '';
+
+                doc.setFont('DejaVu Sans', 'bold');
+                doc.text(`${date} - ${title}`, 20, yPosition);
+                doc.setFont('DejaVu Sans', 'normal');
+                doc.text(company, 20, yPosition + 5);
+
+                const descLines = doc.splitTextToSize(description, 170);
+                doc.text(descLines, 20, yPosition + 10);
+
+                yPosition += 20 + (descLines.length * 6);
+
+                // Проверяем, не вышли ли за пределы страницы
+                if (yPosition > 250) {
+                    doc.addPage();
+                    yPosition = 20;
+                }
+            });
+
+            // Добавляем раздел "Навыки"
+            doc.setFontSize(16);
+            doc.text(currentLang === 'ru' ? 'Навыки' : 'Skills', 20, yPosition + 10);
+            doc.setFontSize(12);
+
+            const skillsItems = document.querySelectorAll('#research ul li');
+            skillsItems.forEach((item, index) => {
+                doc.text(`• ${item.textContent}`, 20, yPosition + 20 + (index * 7));
+
+                if (yPosition + 20 + (index * 7) > 250) {
+                    doc.addPage();
+                    yPosition = 20;
+                }
+            });
+
+            doc.save(currentLang === 'ru' ? 'Георгий_Коссов.pdf' : 'George_Kossov.pdf');
+        });
+    </script>
+  
+</body>
+</html>
